@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <title>I'm Bored</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Let's find something for you to do ✌️</h1>
+
+      <form action="/" id="form" class="form" method="POST">
+        
+          <select name="type" class="form-select">
+            <option value="" <%= data.userType === '' ? 'selected' : '' %>>Random Type</option>
+            <option value="education" <%= data.userType === 'education' ? 'selected' : '' %>>Education</option>
+            <option value="charity" <%= data.userType === 'charity' ? 'selected' : '' %>>Charity</option>
+            <option value="recreational" <%= data.userType === 'recreational' ? 'selected' : '' %>>Recreational</option>
+            <option value="relaxation" <%= data.userType === 'relaxation' ? 'selected' : '' %>>Relaxation</option>
+            <option value="busywork" <%= data.userType === 'busywork' ? 'selected' : '' %>>Busywork</option>
+            <option value="social" <%= data.userType === 'social' ? 'selected' : '' %>>Social</option>
+            <option value="diy" <%= data.userType === 'diy' ? 'selected' : '' %>>DIY</option>
+            <option value="music" <%= data.userType === 'music' ? 'selected' : '' %>>Music</option>
+          </select>
+        <select name="participants" class="form-select">
+          <option value="" <%= data.userParticipants === ''? "selected":"" %>>Any number of people</option>
+          <option value="1" <%= parseInt(data.userParticipants) === 1 ? "selected":"" %>>1</option>
+          <option value="2"<%= parseInt(data.userParticipants) === 2 ? "selected":"" %>>2</option>
+          <option value="3"<%= parseInt(data.userParticipants) === 3 ? "selected":"" %>>3</option>
+          <option value="4"<%= parseInt(data.userParticipants) === 4 ? "selected":"" %>>4</option>
+        </select>
+        <button type="submit" class="form-submit">Go</button>
+      </form>
+      <section id="cards" class="cards">
+        <% if (!locals.error) {%>
+        <article class="card-item">
+          <h2 class="card-activity">
+            <!-- Show Activity -->
+            <%= data.activity %>
+          </h2>
+          <div class="card-info">
+            <span class="card-type">
+              <%= data.type %>
+              <!-- Show Activity type -->
+            </span>
+            <span class="card-participants">
+              <!-- participants: Show participant number -->
+              participants: <%= data.participants %>
+              <span class="card-number"></span>
+            </span>
+          </div>
+        </article>
+        <% } else{ %>
+
+        <div id="tag-error" class="tag-error">
+          <%= error %>
+          <!-- Show any errors that were sent from the backend -->
+        </div>
+        <% } %>
+      </section>
+    </div>
+  </body>
+</html>

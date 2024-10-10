@@ -1,0 +1,138 @@
+/* ------------ */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+}
+/* ------------ */
+body {
+  font-family: monospace;
+  height: 100%;
+  /* background-color: rgb(65, 62, 62); */
+  background-image: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: 50%;
+  color: #eee;
+}
+h1 {
+  width: 100%;
+  margin-bottom: 40px;
+}
+/* ------------ */
+.container {
+  height: 100%;
+  width: 100%;
+  max-width: 570px;
+  margin: 0 auto;
+  padding: 60px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* ------------ */
+.form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 80px;
+  grid-column-gap: 10px;
+}
+.form-select {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  color: #eee;
+  border: 1px solid rgb(78, 78, 78);
+  border-radius: 10px;
+  padding: 0 10px;
+}
+.form-select:focus {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.form-submit {
+  outline: none;
+  border: 1px solid rgb(78, 78, 78);
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  color: #eee;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 36px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+.form-submit:hover {
+  box-shadow: 0 0 0 0.5px rgb(153, 153, 153);
+  background-color: rgba(255, 255, 255, 0);
+}
+.cards {
+  display: flex;
+  margin: 20px 0;
+  width: 100%;
+  flex-direction: column;
+}
+.card-item {
+  width: 100%;
+  padding: 5px 20px 20px;
+  border: 1px solid rgb(58, 56, 56);
+  /* background-color: rgb(43, 43, 43); */
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 5px;
+}
+.card-info {
+  animation: fadeIn 1s ease-in-out;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.card-activity {
+  animation: fadeIn 1s linear;
+  line-height: 1.2;
+  margin-top: 10px;
+}
+.tag-error {
+  width: 100%;
+  text-align: center;
+}
+/* ------------ */
+.is-element-hidden {
+  display: none;
+}
+/* ------------ */
+@media (max-width: 620px) {
+  .container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 60px 20px;
+  }
+  .form {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+  }
+  .form-select {
+    padding: 10px 5px;
+  }
+  body {
+    background-position: center;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
